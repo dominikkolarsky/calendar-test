@@ -1,0 +1,20 @@
+@use "./font" as *;
+
+$font-ABCWhyteInktrap--variants: (
+  "ABCWhyteInktrap-Thin-Trial.otf": 100 normal,
+  "ABCWhyteInktrap-ThinItalic-Trial.otf": 100 italic,
+
+  "ABCWhyteInktrap-Light-Trial.otf": 300 normal,
+  "ABCWhyteInktrap-LightItalic-Trial.otf": 300 italic,
+
+  "ABCWhyteInktrap-Regular-Trial.otf": 400 normal,
+  "ABCWhyteInktrap-RegularItalic-Trial.otf": 400 italic,
+
+  "ABCWhyteInktrap-Medium-Trial.otf": 500 normal,
+  "ABCWhyteInktrap-MediumItalic-Trial.otf": 500 italic,
+
+  "ABCWhyteInktrap-Bold-Trial.otf": 700 normal,
+  "ABCWhyteInktrap-BookItalic-Trial.otf": 700 italic,
+);
+
+@include font(ABCWhyteInktrap, $font-ABCWhyteInktrap--variants, "/fonts/");

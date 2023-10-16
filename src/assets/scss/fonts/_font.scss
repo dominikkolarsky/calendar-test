@@ -1,0 +1,71 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "../config/font";
+
+@forward "../config/font";
+
+@function font-definition($def) {
+  $weight: font.$weight;
+  $style: font.$style;
+  $format: font.$format;
+
+  $type: meta.type-of($def);
+
+  @if ($type == "list") {
+    $len: list.length($def);
+
+    @if ($len >=3) {
+      $format: list.nth($def, 3);
+    }
+
+    @if ($len >=2) {
+      $style: list.nth($def, 2);
+    }
+
+    @if ($len >=1) {
+      $weight: list.nth($def, 1);
+    }
+  } @else if ($type == "map") {
+    @if (map.has-key($def, "weight")) {
+      $weight: map.get($def, "weight");
+    }
+
+    @if (map.has-key($def, "style")) {
+      $style: map.get($def, "style");
+    }
+
+    @if (map.has-key($def, "format")) {
+      $format: map.get($def, "format");
+    }
+  } @else if ($type == "number") {
+    $weight: $def;
+  } @else if (list.index(normal italic oblique, $def)) {
+    $style: def;
+  } @else if ($type == "string") {
+    $format: $def;
+  }
+
+  @return (format: $format, style: $style, weight: $weight);
+}
+
+@mixin font-face($name, $src, $def, $base: font.$base) {
+  $def: font-definition($def);
+  $format: map.get($def, "format");
+  $style: map.get($def, "style");
+  $weight: map.get($def, "weight");
+
+  @font-face {
+    font-family: $name;
+    font-display: block;
+    font-weight: $weight;
+    font-style: $style;
+    src: url($base + $src) format($format);
+  }
+}
+
+@mixin font($name, $fonts, $base: font.$base) {
+  @each $src, $def in $fonts {
+    @include font-face($name, $src, $def, $base);
+  }
+}
