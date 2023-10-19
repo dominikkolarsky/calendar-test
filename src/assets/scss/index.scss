@@ -2,7 +2,11 @@
 @use "typography";
 
 // RESET
-#calendar-app {
+body {
+  margin: 0;
+}
+
+.calendar-app {
   font-size: 16px;
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
@@ -12,15 +16,19 @@
   color: var(--clr-fg);
 
   *,
-  *:before,
-  *:after {
+  ::before,
+  ::after {
     box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: currentColor;
   }
 
   hr {
     height: 1px;
     color: inherit;
     border: 0;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.4) 30%, rgba(255, 255, 255, 0.4) 70%, rgba(255, 255, 255, 0.1) 100%)
   }
 
   abbr:where([title]) {
@@ -37,7 +45,6 @@
     height: auto;
   }
 
-
   h1,
   h2,
   h3,
@@ -48,13 +55,10 @@
     font-weight: inherit;
   }
 
-
   a {
     color: inherit;
     text-decoration: inherit;
   }
-
-
 
   button,
   input,
@@ -185,7 +189,6 @@
     vertical-align: middle;
   }
 
-
   img,
   video {
     max-width: 100%;
@@ -194,33 +197,5 @@
 
   [hidden] {
     display: none;
-  }
-
-  // 
-  .tkd_calendar {
-    background-color: var(--clr-bg);
-    background: linear-gradient(175deg, rgb(10, 16, 23) 50%, rgb(32, 39, 55) 100%);
-
-    width: min(420px, 100%);
-    height: fit-content;
-    margin-inline: auto;
-
-    border-radius: 1.5rem;
-    padding: 1rem;
-  }
-
-  .tkd_calendar__inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    width: 100%;
-    gap: 1rem;
-
-    position: relative;
-  }
-
-  .hr {
-    border-top: 1px solid var(--clr-disabled);
   }
 }

@@ -11,7 +11,8 @@ export default defineConfig({
   },
   css: {
     modules: {
-      generateScopedName: '[local]_[hash:base64:2]',
+      // generateScopedName: 'tkd_[local]_[hash:base64:2]',
+      generateScopedName: 'tkd_[local]',
     },
   },
   build: {

@@ -1,0 +1,15 @@
+.performance_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.performance_date {
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+.performance_any {
+  font-weight: 300;
+  color: var(--clr-disabled);
+}

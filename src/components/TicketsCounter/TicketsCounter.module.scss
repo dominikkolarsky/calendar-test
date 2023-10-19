@@ -1,0 +1,27 @@
+  .counter_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.125rem;
+    padding-block: .5rem;
+  }
+
+  .counter_btns_group {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+  }
+
+  .counter_number {
+    min-width: 12px;
+    text-align: center;
+  }
+
+  h3.counter_heading {
+    font-weight: bold;
+  }
+
+  button.counter_btn__disabled {
+    color: var(--clr-disabled-80);
+    cursor: default;
+  }

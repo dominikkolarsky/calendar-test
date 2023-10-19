@@ -1,20 +1,46 @@
 import './assets/scss/index.scss';
+import s from './App.module.scss';
+
 import Calendar from './components/Calendar/Calendar';
 import PerformanceList from './components/PerformanceList/PerformanceList';
 import TicketsCounter from './components/TicketsCounter/TicketsCounter';
+import { useLoadProduct } from './utils/hooks/useLoadProduct';
+import { useEffect, useState } from 'react';
+import { useBookingContext } from './utils/providers/BookingContextProvider';
+import LoadingIndicator from './components/LoadingIndicator/LoadingIndicator';
 
 function App({ domElement }: { domElement: HTMLElement }) {
-  const attribute = domElement.getAttribute('data-attribute-1');
+  const [isLoading, setLoading] = useState(true);
+
+  const id = domElement.getAttribute('data-product-id');
+  const { setProduct, setPerformances } = useBookingContext();
+
+  const { product: loadedProduct, performances: loadedPerformances } = useLoadProduct(Number(id));
+
+  useEffect(() => {
+    setTimeout(() => {
+      setProduct(loadedProduct!);
+      setPerformances(loadedPerformances);
+      setLoading(false);
+    }, 1600);
+  }, [loadedProduct, loadedPerformances]);
 
   return (
     <>
-      <div className="tkd_calendar">
-        <div className="tkd_calendar__inner">
-          <h2>Hello from micro-frontend-app, called: {attribute}</h2>
-          <TicketsCounter />
-          <hr className="hr" />
-          <Calendar />
-          <PerformanceList />
+      <div className={s.calendar}>
+        <div className={s.calendar__container}>
+          {!isLoading ? (
+            <div className={s.calendar__inner}>
+              <TicketsCounter />
+              <hr />
+              <Calendar />
+              <PerformanceList />
+            </div>
+          ) : (
+            <div className={s.loading__wrapper}>
+              <LoadingIndicator />
+            </div>
+          )}
         </div>
       </div>
     </>

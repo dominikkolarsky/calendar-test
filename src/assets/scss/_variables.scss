@@ -1,13 +1,18 @@
 :root {
   --clr-primary: rgb(0, 220, 176);
+  --clr-primary-hover: rgb(0, 220, 176, 0.5);
   --clr-secondary: rgb(201, 169, 245);
-
   --clr-bg: rgb(10, 16, 23);
   --clr-fg: rgb(255, 255, 255);
-
   --clr-blue: rgb(32, 0, 77);
-
   --clr-highlight: rgb(255, 94, 85);
-
   --clr-disabled: rgb(156, 163, 175);
+  --clr-disabled-80: rgba(156, 163, 175, 0.8);
+
+  --clr-date-tile: rgba(255, 255, 255, 0.25);
+  --clr-date-tile-active: #00dcb0;
+  --clr-date-tile-disabled: rgb(255, 255, 255, .09);
+
+  --app-max-w: 420px;
+  --transition-all-3: all 0.3s ease-in-out;
 }

@@ -1,12 +1,11 @@
-import axios from "axios";
-import { format } from "date-fns";
-import { ProductsResponseModel, ProductAvailabilityModel } from "../types/types";
+import axios from 'axios';
+import { format } from 'date-fns';
+import { ProductsResponseModel, ProductAvailabilityModel } from '../types/types';
 
-
-const tkdAxios = axios.create({ headers: { "x-tt-retailer": "tickadoo", affiliateId: "tickadoo" } });
+const tkdAxios = axios.create({ headers: { 'x-tt-retailer': 'tickadoo', affiliateId: 'tickadoo' } });
 
 export const getProducts = async () => {
-  return tkdAxios.get<ProductsResponseModel>("https://content-service.tixuk.io/api/v3/products");
+  return tkdAxios.get<ProductsResponseModel>('https://content-service.tixuk.io/api/v3/products');
 };
 
 export const getProductById = async (id: number) => {
@@ -15,10 +14,10 @@ export const getProductById = async (id: number) => {
 };
 
 export const getProductAvailability = async (id: number, quantity: number, fromDate: Date, toDate: Date) => {
-  const dateStringFormat = "YMMdd";
+  const dateStringFormat = 'YMMdd';
 
   const params = {
-    affiliateId: "tickadoo",
+    affiliateId: 'tickadoo',
   };
 
   fromDate = new Date(fromDate);
@@ -28,7 +27,6 @@ export const getProductAvailability = async (id: number, quantity: number, fromD
     `https://inventory-service.tixuk.io/api/v4/availability/products/${id}/quantity/${quantity}/from/${format(
       fromDate,
       dateStringFormat
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     )}/to/${format(toDate, dateStringFormat)}`,
     { params }
   );

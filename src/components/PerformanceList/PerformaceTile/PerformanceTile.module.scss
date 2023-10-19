@@ -1,0 +1,40 @@
+.performance_tile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 0.75rem;
+
+  background-color: var(--clr-primary);
+  color: var(--clr-bg);
+  cursor: pointer;
+
+  transition: var(--transition-all-3);
+  opacity: .8;
+
+  &:hover {
+    opacity: 1;
+    box-shadow: rgba(0, 220, 176, 0.3) 0px 0px 10px;
+  }
+}
+
+.performance_tile__text {
+  display: flex;
+  flex-direction: column;
+
+  &>h3 {
+    font-weight: bold;
+  }
+
+  &>span {
+    font-weight: 300;
+  }
+}
+
+.performance_tile__cta {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}

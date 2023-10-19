@@ -1,0 +1,27 @@
+.month_header_wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-block: .5rem;
+  gap: 1.5rem;
+}
+
+.month_header_select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.month_header_name {
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1rem;
+}
+
+.month_days_name {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  &>span {
+    text-align: center;
+  }
+}

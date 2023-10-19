@@ -1,0 +1,37 @@
+.calendar {
+  display: flex;
+  width: min(var(--app-max-w, 420px), 100%);
+  margin-inline: auto;
+}
+
+.calendar__container {
+  background-color: var(--clr-bg);
+  background: linear-gradient(175deg, rgb(10, 16, 23) 50%, rgb(32, 39, 55) 100%);
+  width: 100%;
+  min-height: 600px;
+
+  padding: 1rem;
+
+  @media screen and (width > 420px) {
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+.calendar__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+
+  position: relative;
+}
+
+.loading__wrapper {
+  display: grid;
+  place-content: center;
+  height: 100%;
+}
