@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -15,7 +16,7 @@ const widgetDiv = document.getElementById(widgetName);
 //   </React.StrictMode>
 // );
 
-const render = (cotainerId: string) => {
+(window as any).renderCalendar = (cotainerId: string) => {
   ReactDOM.createRoot(document.getElementById(cotainerId)!).render(
     <React.StrictMode>
       <BookingContextProvider>
@@ -25,7 +26,7 @@ const render = (cotainerId: string) => {
   );
 };
 
-const unmout = (containerId: string) => {
+(window as any).unmountCalendar = (containerId: string) => {
   const container = document.getElementById(containerId);
   if (container) {
     ReactDOM.createRoot(container).unmount();
