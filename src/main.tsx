@@ -16,8 +16,8 @@ const widgetDiv = document.getElementById(widgetName);
 //   </React.StrictMode>
 // );
 
-(window as any).renderCalendar = (cotainerId: string) => {
-  ReactDOM.createRoot(document.getElementById(cotainerId)!).render(
+(window as any).renderCalendar = (containerId: string) => {
+  ReactDOM.createRoot(document.getElementById(containerId)!).render(
     <React.StrictMode>
       <BookingContextProvider>
         <App domElement={widgetDiv!} />
