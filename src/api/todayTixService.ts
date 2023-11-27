@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { format } from 'date-fns';
-import { ProductsResponseModel, ProductAvailabilityModel } from '../types/types';
+import {format} from 'date-fns';
+import {ProductsResponseModel, ProductAvailabilityModel} from '../types/types';
 
-const tkdAxios = axios.create({ headers: { 'x-tt-retailer': 'tickadoo', affiliateId: 'tickadoo' } });
+const tkdAxios = axios.create({headers: {'x-tt-retailer': 'tickadoo', affiliateId: 'tickadoo'}});
 
 export const getProducts = async () => {
   return tkdAxios.get<ProductsResponseModel>('https://content-service.tixuk.io/api/v3/products');
@@ -28,19 +28,20 @@ export const getProductAvailability = async (id: number, quantity: number, fromD
       fromDate,
       dateStringFormat
     )}/to/${format(toDate, dateStringFormat)}`,
-    { params }
+    {params}
   );
 };
 
 export const getPerformanceForProduct = async (id: number, ticketCount: number) => {
   return getProductById(id).then((productRes) => {
+    console.log(id)
     if (productRes === undefined) return;
 
     const currDate = new Date();
     const dateFrom = productRes.availableFrom < currDate ? currDate : productRes.availableFrom;
 
     return getProductAvailability(id, ticketCount, dateFrom, productRes.bookingTo).then((res) => {
-      return { product: productRes!, performances: res.data.response! };
+      return {product: productRes!, performances: res.data.response!};
     });
   });
 };
