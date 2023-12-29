@@ -8,6 +8,15 @@
   </head>
   <body>
     <div id="calendar-app" class="calendar-app" data-product-id="105"></div>
+
+    <div id="calendar-overlay" class="calendar-app" data-product-id="105"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <button id="open-calendar">open overlay calendar</button>
+    <script>
+      document
+        .getElementById("open-calendar")
+        ?.addEventListener("click", () => window.mountCalendarWidget("calendar-overlay"));
+    </script>
   </body>
 </html>

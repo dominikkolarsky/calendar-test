@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import { BookingContextProvider } from './utils/providers/BookingContextProvider.tsx';
 
+// * dev
 const calendarWidgetId = 'calendar-app';
 const calendarWidgetDiv = document.getElementById(calendarWidgetId);
 
@@ -16,9 +18,16 @@ if (import.meta.env.DEV) {
   );
 }
 
-const renderCalendarWidget = (containerId: string) => {
-  const containerDiv = document.getElementById(containerId);
+//  * prod
+declare global {
+  interface Window {
+    mountCalendarWidget: typeof mountCalendarWidget;
+    unmountCalendarWidget: typeof unmountCalendarWidget;
+  }
+}
 
+const mountCalendarWidget = (containerId: string) => {
+  const containerDiv = document.getElementById(containerId);
   return ReactDOM.createRoot(containerDiv!).render(
     <React.StrictMode>
       <BookingContextProvider>
@@ -28,24 +37,12 @@ const renderCalendarWidget = (containerId: string) => {
   );
 };
 
-export { renderCalendarWidget };
+const unmountCalendarWidget = (containerId: string) => {
+  const container = document.getElementById(containerId);
+  if (container) {
+    ReactDOM.createRoot(container).unmount();
+  }
+};
 
-// * old
-//else {
-//   (window as any).renderCalendar = (containerId: string) => {
-//     ReactDOM.createRoot(document.getElementById(containerId)!).render(
-//       <React.StrictMode>
-//         <BookingContextProvider>
-//           <App domElement={document.getElementById(containerId)!} />
-//         </BookingContextProvider>
-//       </React.StrictMode>
-//     );
-//   };
-
-//   (window as any).unmountCalendar = (containerId: string) => {
-//     const container = document.getElementById(containerId);
-//     if (container) {
-//       ReactDOM.createRoot(container).unmount();
-//     }
-//   };
-// }
+window.mountCalendarWidget = mountCalendarWidget;
+window.unmountCalendarWidget = unmountCalendarWidget;
