@@ -21,7 +21,7 @@ const BookingContext = createContext<BookingContextProps | undefined>(undefined)
 
 const BookingContextProvider = ({ children }: { children: ReactNode }) => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-  const [ticketCount, setTicketCount] = useState<number>(1);
+  const [ticketCount, setTicketCount] = useState<number>(2);
   const [performances, setPerformances] = useState<PerformanceModel[]>([]);
   const [product, setProduct] = useState<ProductModel>();
   const [productId, setProductId] = useState<number>();

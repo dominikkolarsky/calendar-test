@@ -17,6 +17,7 @@
   &.active {
     cursor: pointer;
     background-color: var(--clr-date-tile);
+    background-color: hsla(168, 100%, 43%, 0.6);
 
     &:hover {
       background-color: var(--clr-date-tile-active);
@@ -29,6 +30,7 @@
 
   &.inactive {
     cursor: default;
+    color: rgba(255, 255, 255, 0.5);
     background: var(--clr-date-tile-disabled);
   }
 
@@ -48,6 +50,7 @@
 .date_tile_day {
   font-weight: bold;
   font-size: 1.125rem;
+  line-height: 2.5;
 
   @media screen and (width < 375px) {
     font-size: 1rem;

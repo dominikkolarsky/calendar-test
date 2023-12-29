@@ -1,0 +1,26 @@
+.btn[type=button] {
+  place-content: center;
+  align-items: center;
+  display: flex;
+  flex-flow: row;
+  
+  height: min-content;
+  width: min-content;
+  overflow: hidden;
+  
+  cursor: pointer;
+  padding-inline: 1.5rem;
+  padding-block: 1.25rem;
+  border-radius: 99px;
+  text-wrap: nowrap;
+  color: black;
+
+  &.btn__green {
+    background-color: var(--clr-primary);
+    box-shadow: 0px 0px 10px 1px var(--clr-primary, rgb(0, 220, 176));
+    
+    &:hover {
+      background-color: rgb(0, 220, 176, .9);
+    }
+  }
+}

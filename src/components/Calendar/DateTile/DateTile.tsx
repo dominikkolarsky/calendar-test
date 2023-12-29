@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { PerformanceModel } from '../../../types/types';
 import { useBookingContext } from '../../../utils/providers/BookingContextProvider';
 import { isSameDay } from 'date-fns';
-import { formatPrice } from '../../../utils/helpers/PerformanceHelper';
+// import { formatPrice } from '../../../utils/helpers/PerformanceHelper';
 
 type DateTileProps = {
   date: Date;
@@ -34,13 +34,13 @@ export default function DateTile(props: DateTileProps) {
     return performances.length > 0;
   };
 
-  const getMinTicketPrice = () => {
-    if (!hasPerformance()) return '‎';
+  // const getMinTicketPrice = () => {
+  //   if (!hasPerformance()) return '‎';
 
-    const performace = performances.reduce((min, curr) => (curr.minPrice < min.minPrice ? curr : min), performances[0]);
+  //   const performace = performances.reduce((min, curr) => (curr.minPrice < min.minPrice ? curr : min), performances[0]);
 
-    return formatPrice(performace);
-  };
+  //   return formatPrice(performace);
+  // };
 
   const getStyle = () => {
     if (!isCurrentMonth) return s.ghost;
@@ -62,7 +62,7 @@ export default function DateTile(props: DateTileProps) {
       className={`${s.date_tile} ${getStyle()} ${isFocused ? s.date_tile__focused : ''}`}
     >
       <span className={s.date_tile_day}>{isCurrentMonth ? date.getDate() : ''}</span>
-      <span className={s.date_tile_price}>{getMinTicketPrice()}</span>
+      {/* <span className={s.date_tile_price}>{getMinTicketPrice()}</span> */}
     </div>
   );
 }

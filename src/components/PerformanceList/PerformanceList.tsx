@@ -15,7 +15,7 @@ export default function PerformanceList() {
 
   return (
     <div className={s.performance_wrapper}>
-      <h3 className={s.performance_date}>{formatDateTimeTz(selectedDate, 'dd MMMM yyyy')}</h3>
+      <h3 className={s.performance_date}>{formatDateTimeTz(selectedDate, 'dd MMMM yyyy', 'Europe/London')}</h3>
       {performances.length === 0 && <span className={s.performance_any}>No performances for this day</span>}
       {performances.map((p, index) => (
         <PerformanceTile key={index} {...p} />

@@ -5,13 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build-old": "tsc && vite build",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.5.1",
+    "axios": "^1.6.3",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
     "eslint-plugin-react": "^7.33.2",
@@ -19,19 +18,18 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.4",
-    "@types/node": "^20.8.6",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react-swc": "^3.3.2",
-    "eslint": "^8.45.0",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "sass": "^1.69.3",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "sass": "^1.69.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
     "vite-plugin-eslint": "^1.8.1"
   }
 }

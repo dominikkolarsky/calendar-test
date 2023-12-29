@@ -5,7 +5,7 @@ import { useBookingContext } from '../../utils/providers/BookingContextProvider'
 import { MinusCircleIcon, PlusCircleIcon } from '../../icons/Icons';
 
 export default function TicketsCounter() {
-  const [count, setCount] = useState<number>(1);
+  const [count, setCount] = useState<number>(2);
   const [maxCount, setMaxCount] = useState<number>(6);
 
   const { ticketCount, setTicketCount, product } = useBookingContext();

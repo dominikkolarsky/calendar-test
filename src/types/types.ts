@@ -30,7 +30,9 @@ export type ProductsResponseModel = {
 export type ProductModel = {
   id: number;
   name: string;
-  availableFrom: Date;
-  bookingTo: Date;
+  dateFrom: string;
+  dateTo: string;
   maxTickets: number;
+  availableFrom?: Date;
+  bookingTo?: Date;
 };
